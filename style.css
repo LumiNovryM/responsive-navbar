@@ -1,0 +1,132 @@
+/* #=== Fonts ===# */
+/* #== Satisfy ==# */
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+/* #== Poppins ==# */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+
+/* #== Navbar ==# */
+nav{
+    display: flex;
+    background-color: #E9DBDB;
+    justify-content: space-between;
+    padding: 20px;
+    color: #2C2C2C;
+    height: 20px;
+    align-items: center;
+}
+
+nav .logo{
+    font-family: 'Satisfy';
+    letter-spacing: 2px;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-between;
+}
+
+nav ul li a{
+    color: #2C2C2C;
+    text-decoration: none;
+    font-size: .8em;
+}
+
+nav ul li a:hover{
+    color: #3a3939;
+}
+
+.menu-toggle{
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-toggle input{
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -6px;
+    top: -5px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu-toggle span{
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: #2C2C2C;
+    transition: all 0.5s;
+}
+
+/* #=== Humburger Menu Animation ===# */
+.menu-toggle span:nth-child(2){
+    transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4){
+    transform-origin: 0 0;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2){
+    background-color: #3a3939;
+    transform: rotate(43deg) translate(-1px, -1px);    
+}
+
+.menu-toggle input:checked ~ span:nth-child(4){
+    background-color: #3a3939;
+    transform: rotate(-45deg) translate(-1px ,0px);    
+}
+
+.menu-toggle input:checked ~ span:nth-child(3){
+    opacity: 0;
+    transform: scale(0);
+}
+
+/* #=== Ukuran Tablet ===# */
+@media screen and (max-width: 768px){
+    nav ul {
+        width: 50%;
+    }
+}
+
+/* #=== Ukuran Mobile ===# */
+@media screen and (max-width: 576px){
+    nav ul {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 75%;
+        height: 100vh;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        background-color: #E9DBDB;
+        z-index: -1;
+        transform: translateX(100%);
+        transition: all 1s;
+    }
+
+    nav ul.slide{
+        transform: translateX(0);
+    }
+
+    .menu-toggle{
+        display: flex;
+    }
+}
